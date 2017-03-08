@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/imgvCover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_launcher" />
+    <!--android:scaleType="fitCenter"
+    android:contentDescription="@string/cover_label"
+        android:layout_centerInParent="true"
+    -->
+
+            <TextView
+                android:id="@+id/txtvPodcastTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:text="Podcast"
+                android:layout_below="@id/imgvCover"
+                android:layout_marginTop="40dp"
+                android:textColor="?android:attr/textColorSecondary" />
+
+
+
+        <TextView
+            android:id="@+id/txtvEpisodeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="Episode"
+            android:layout_below="@id/txtvPodcastTitle"
+            android:layout_marginTop="5dp"
+            android:textColor="?android:attr/textColorPrimary" />
+
+</RelativeLayout>
