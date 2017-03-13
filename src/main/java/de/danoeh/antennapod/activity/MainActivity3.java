@@ -434,7 +434,8 @@ public class MainActivity3 extends CastEnabledActivity  {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if(item.getItemId()==android.R.id.home){
-            finish();
+            onBackPressed();
+//            finish();
             return true;
         }
             return super.onOptionsItemSelected(item);

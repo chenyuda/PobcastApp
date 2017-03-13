@@ -14,7 +14,6 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -78,7 +77,7 @@ public class MainActivity2 extends CastEnabledActivity{
 
     private VpAdapter vpAdapter;
 
-    private static final String[] TITLE = new String[] { "推荐", "TOP", "订阅","未播放",};
+    private static final String[] TITLE = new String[] { "推荐", "TOP", "已订阅","未播放",};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,9 +91,9 @@ public class MainActivity2 extends CastEnabledActivity{
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //            findViewById(R.id.shadow).setVisibility(View.GONE);
-            int elevation = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4,
-                    getResources().getDisplayMetrics());
-            getSupportActionBar().setElevation(elevation);
+//            int elevation = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4,
+//                    getResources().getDisplayMetrics());
+//            getSupportActionBar().setElevation(elevation);
         }
 
 //        SharedPreferences sp=getSharedPreferences(PREF_NAME, MODE_PRIVATE);
@@ -135,14 +134,14 @@ public class MainActivity2 extends CastEnabledActivity{
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    public void backFragment(){
+        viewPager.setCurrentItem(0);
+    }
+
     private List<Fragment> getFragmentData() {
         List<Fragment> list = new ArrayList<Fragment>();
-//        Bundle bundle=new Bundle();
-//        bundle.putString("encode",lunguage);
         PodcastTopListFragment appfrg =new PodcastTopListFragment();
-//        appfrg.setArguments(bundle);
         TopFragment imgfrg = new TopFragment();
-//        imgfrg.setArguments(bundle);
         SubscriptionFragment musicfrg=new SubscriptionFragment();
         PlaybackHistoryFragment videofrg=new PlaybackHistoryFragment();
         list.add(appfrg);
@@ -246,7 +245,11 @@ public class MainActivity2 extends CastEnabledActivity{
             case R.id.action_search:
                 final SearchView sv = (SearchView) MenuItemCompat.getActionView(item);
                 MenuItemUtils.adjustTextColor(this, sv);
-                sv.setQueryHint(getString(R.string.gpodnet_search_hint));
+//                sv.setQueryHint(getString(R.string.gpodnet_search_hint));
+//                int hintid =getResources().getIdentifier("android:id/search_src_text",null,null);
+//                TextView tv= (TextView) sv.findViewById(hintid);
+//                tv.setTextColor(Color.WHITE);
+//                tv.setHintTextColor(Color.WHITE);
                 sv.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
                     @Override
                     public boolean onQueryTextSubmit(String s) {
